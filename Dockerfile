@@ -6,7 +6,7 @@ COPY build.gradle.kts settings.gradle.kts ./
 
 COPY src ./src
 
-RUN gradle bootJar --no-deamon -x test
+RUN gradle bootJar --no-daemon -x test
 
 FROM eclipse-temurin:25-jre-alpine
 
