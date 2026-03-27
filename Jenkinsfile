@@ -41,6 +41,8 @@ spec:
                 container('gitops'){
                  // Extract the first 7 characters of the Git commit and TRIM the hidden newline
                     script {
+                        // Fixing the access issue between containers inside the pipeline
+                        sh 'git config --global --add safe.directory "*"'
                         env.GIT_SHA = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
                     }
                 }
